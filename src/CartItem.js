@@ -13,9 +13,34 @@ class CartItem extends React.Component{
         }
     }
 
+    increasedQuantity(){
+        // form 1
+        // this.setState({
+        //     qty: this.state.qty +1
+        // })
+
+        //form 2nd
+        this.setState((prevState)=>{
+            return {
+                qty: prevState.qty+1
+            }
+        } )
+    }
+
+    decresedQuantity = ()=>{
+        if(this.state.qty ===0){
+            return;
+        }
+
+        this.setState({
+            qty: this.state.qty -1
+        })
+
+    }
+
     render(){
 
-        const {title, img, qty, price} = this.state;
+        const {title,  qty, price} = this.state;
 
         return(
             <div className='cart-item'>
@@ -29,9 +54,23 @@ class CartItem extends React.Component{
                 <div style={{color: '#777'}} >Qty: {qty} </div>
 
                 <div className='cart-item-actions'>
-                    <img src="https://cdn-icons-png.flaticon.com/128/992/992651.png" alt="increase" className='action-icons' />
-                    <img src="https://cdn-icons-png.flaticon.com/128/992/992683.png" alt="decrese" className='action-icons' />
-                    <img src="https://t4.ftcdn.net/jpg/00/98/26/11/240_F_98261175_Sv69O3rZsHApYkjAdrWbgQixYHwyZyOr.jpg" alt="delete" className='action-icons' />
+                    <img 
+                     src="https://cdn-icons-png.flaticon.com/128/992/992651.png"
+                     alt="increase"
+                     className='action-icons'
+                     onClick={this.increasedQuantity.bind(this)}
+                    />
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/128/992/992683.png"
+                      alt="decrese" 
+                      className='action-icons'
+                      onClick={this.decresedQuantity}
+                    />
+                    <img
+                      src="https://t4.ftcdn.net/jpg/00/98/26/11/240_F_98261175_Sv69O3rZsHApYkjAdrWbgQixYHwyZyOr.jpg"
+                      alt="delete"
+                      className='action-icons'
+                    />
                 </div>
             </div>
 
