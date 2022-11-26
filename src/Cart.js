@@ -33,27 +33,28 @@ class Cart extends React.Component{
         }
     }
 
-    increasedQuantity(){
-        // form 1
-        // this.setState({
-        //     qty: this.state.qty +1
-        // })
+    increasedQuantity = (product)=>{
 
-        //form 2nd
-        this.setState((prevState)=>{
-            return {
-                qty: prevState.qty+1
-            }
+        const {products} = this.state;
+        const index = products.indexOf(product);
+
+        products[index].qty +=1;
+        this.setState({
+            // products:products used short hand products
+            products
         })
     }
 
-    decresedQuantity = ()=>{
-        if(this.state.qty ===0){
+    decresedQuantity = (product)=>{
+        const {products} = this.state;
+        const index = products.indexOf(product);
+
+        if(products[index].qty ===0){
             return;
         }
-
+        products[index].qty -=1;
         this.setState({
-            qty: this.state.qty -1
+            products
         })
 
     }
@@ -66,6 +67,8 @@ class Cart extends React.Component{
                     return <CartItem 
                     product= {product}
                     key ={product.id}
+                    onIncreaseQuantity = {this.increasedQuantity}
+                    onDecreaseQuantity = {this.decresedQuantity}
                      />
                 })}
             </div>
