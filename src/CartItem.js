@@ -9,7 +9,7 @@ class CartItem extends React.Component{
             title: 'Mobile',
             price: 999,
             qty: 1,
-            img: ''
+            img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpwhD6sYLoaWpUxIPK0Ra631k0pVDwJhC_Pw&usqp=CAU'
         }
     }
 
@@ -24,7 +24,7 @@ class CartItem extends React.Component{
             return {
                 qty: prevState.qty+1
             }
-        } )
+        })
     }
 
     decresedQuantity = ()=>{
@@ -45,7 +45,7 @@ class CartItem extends React.Component{
         return(
             <div className='cart-item'>
             <div className='left-block'>
-                <img  style={styles.images } alt="" />
+                <img  style={styles.images } alt="" src= {this.state.img} />
             </div>
 
             <div className='right-block'>
@@ -81,8 +81,8 @@ class CartItem extends React.Component{
 
 const styles = {
     images:{
-        height : 110,
-        width : 110,
+        height : 180,
+        width : 180,
         borderRadius: 5,
         backgroundColor: '#ccc'
     }
