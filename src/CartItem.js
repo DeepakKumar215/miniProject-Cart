@@ -1,44 +1,7 @@
 import React from 'react';
 
 const CartItem = (props)=> {
-
-    // constructor(){
-    //     super();
-
-    //     this.state = {
-    //         title: 'Mobile',
-    //         price: 999,
-    //         qty: 1,
-    //         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpwhD6sYLoaWpUxIPK0Ra631k0pVDwJhC_Pw&usqp=CAU'
-    //     }
-    // }
-
-    // increasedQuantity(){
-    //     // form 1
-    //     // this.setState({
-    //     //     qty: this.state.qty +1
-    //     // })
-
-    //     //form 2nd
-    //     this.setState((prevState)=>{
-    //         return {
-    //             qty: prevState.qty+1
-    //         }
-    //     })
-    // }
-
-    // decresedQuantity = ()=>{
-    //     if(this.state.qty ===0){
-    //         return;
-    //     }
-
-    //     this.setState({
-    //         qty: this.state.qty -1
-    //     })
-
-    // }
-
-        
+      
         const {title,  qty, price, img} = props.product;
         const {onIncreaseQuantity, onDecreaseQuantity, product, onDeleteQuantity} = props;
 

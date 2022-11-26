@@ -111,10 +111,23 @@ class App extends React.Component {
     return count;
 
     }
+
+    getTotalPrice =()=>{
+      const {products} = this.state;
+
+      let totalPrice = 0;
+
+      products.map((product)=>{
+        totalPrice = totalPrice + product.qty* product.price;
+        return 0;
+      })
+
+      return totalPrice;
+    }
   
     render(){
       const {products} = this.state;
-  return (
+    return (
       <div className="App">
         <Navbar count={this.getCount()} />
         <Cart
@@ -123,6 +136,7 @@ class App extends React.Component {
           onDecreaseQuantity = {this.decresedQuantity}
           onDeleteQuantity = {this.handleDelete}
         />
+        <div style={{fontSize: 30, padding: 10, color: 'gray'}} > Total Amount : {this.getTotalPrice()} </div>
       </div>
     );
   }
